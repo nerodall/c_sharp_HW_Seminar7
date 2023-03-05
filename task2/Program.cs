@@ -17,38 +17,38 @@ int InputInt(string message)
     return Convert.ToInt32(System.Console.ReadLine());
 }
 
- int [,] GenerateArray( int row, int col)
- {
-    int [,] array = new int [row,col];
-    
-for (int i = 0; i < array.GetLength(0); i++)
+int[,] GenerateArray(int row, int col)
 {
-    for (int j = 0; j < array.GetLength(1); j++)
-    {
-        array[i,j]= new Random().Next(1,11);
-    }
-}
-    return array;
- }
+    int[,] array = new int[row, col];
 
-void PrintArray (int[,] array)
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(1, 11);
+        }
+    }
+    return array;
+}
+
+void PrintArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
         System.Console.WriteLine();
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            System.Console.Write($"{array[i,j]} ");
+            System.Console.Write($"{array[i, j]} ");
         }
     }
     System.Console.WriteLine();
-} 
+}
 
-void SearchElement (int [,] array, int searchRow, int searchCol)
+void SearchElement(int[,] array, int searchRow, int searchCol)
 {
-    if (searchRow-1 <= array.GetLength(0) || searchCol-1 <= array.GetLength(1))
+    if (searchRow - 1 <= array.GetLength(0) || searchCol - 1 <= array.GetLength(1))
     {
-        System.Console.WriteLine($"На позиции {searchRow},{searchCol} находится элемент {array[searchRow-1,searchCol-1]}");
+        System.Console.WriteLine($"На позиции {searchRow},{searchCol} находится элемент {array[searchRow - 1, searchCol - 1]}");
     }
     else
     {
@@ -59,10 +59,10 @@ void SearchElement (int [,] array, int searchRow, int searchCol)
 
 
 
-int [,] matrix = GenerateArray(3,3);
+int[,] matrix = GenerateArray(3, 3);
 PrintArray(matrix);
 
 int row = InputInt("Введите номер строки");
 int col = InputInt("Введите стобца");
 
-SearchElement(matrix,row,col);
+SearchElement(matrix, row, col);
